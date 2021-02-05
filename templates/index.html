@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>TEXT SIMILARITY</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div>
+	<h1>Fetch Rewards - Text Similarity Challenge</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     <p>Similarity between sample1 and sample2 is {{ firstSimilarity }}</p>
+     <p>Similarity between sample2 and sample3 is {{ secondSimilarity }}</p>
+     <p>Similarity between sample1 and sample3 is {{ thirdSimilarity }}</p>
+     <br>
+     <h3>Test with sample texts</h3>
+    <form action="{{ url_for('getSimilarity')}}"method="post">
+    	<input type="text" name="sample1" placeholder="Sample Text 1" required="required" />
+        <input type="text" name="sample2" placeholder="Sample Text 2" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Find Similarity</button>
+    </form>
+     <p>{{ result }}</p>
+ </div>
+
+
+</body>
+</html>
